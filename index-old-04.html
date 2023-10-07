@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app"></div>    
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    text: "bonjour Vue" ,
+                    text2: "guten tag",       
+                    text3: "Text 3 power",       
+                    textSame: "Text Same 3 power"          
+                };
+            },
+            methods: {
+                inputText(e) {
+                    console.log(e.target.value);
+                    textActualized = e.target.value;
+                    this.text = textActualized
+                },
+                inputTextInput(e) {
+                    console.log(e.target.value);
+                    textActualized = e.target.value;
+                    this.text2 = textActualized
+                },
+                inputTextInputPower(e) {
+                    console.log(e.target.value);
+                    textActualized = e.target.value;
+                    this.text3 = textActualized
+                },
+                inputTextInputPowerSame(e) {
+                    console.log(e.target.value);
+                    textActualized = e.target.value;
+                    this.textSame = textActualized
+                }
+            },
+            template: `
+                <p>{{ text }}</p>
+                <input type="text" v-on:change="inputText"/>
+                <p>{{ text2 }}</p>
+                <input type="text" v-on:input="inputTextInput"/>
+                <p>{{ text3 }}</p>
+                <input 
+                    type="text" 
+                    v-on:input="inputTextInputPower"
+                    v-bind:value="text3"
+                />
+                <p>{{ textSame }}</p>
+                <input 
+                    type="text" 
+                    @input="inputTextInputPowerSame"
+                    :value="textSame"
+                />
+            `
+        }).mount("#app");
+        console.log(vm);
+    </script>
+    
+</body>
+</html>

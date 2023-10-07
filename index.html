@@ -7,42 +7,21 @@
 </head>
 <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <div id="app">
-        
-    </div>
-    
+    <div id="app"></div>    
     <script>
         const vm = Vue.createApp({
             data() {
-                return { 
-                    evt: "submit",
-                    counter: 0,                
+                return {    
+                    textSame: "Text Same 3 power"          
                 };
             },
-            methods: {
-                increments()  {
-                    console.log("clicking!!");
-                    this.counter++
-                },
-                submiting(e)  {
-                    e.preventDefault();
-                    this.counter++
-                },
-                withPreventFromVUE() {
-                    console.log("qfdsfqsdf");
-                    // console.log(e);
-                    this.counter++
-                },
-                preventFromValueInData() {
-                    console.log("qfdsfqsdf");
-                    this.counter++
-                }
-            },
-            template: `<button v-on:click="increments">{{ counter }}</button>
-            <button v-on:keyup="increments">{{ counter }}</button>
-            <form  v-on:submit="submiting"><button>{{ counter }}</button></form>            
-            <form  v-on:submit.prevent="withPreventFromVUE"><button>{{ counter }}</button></form>
-            <form  v-on:[evt].prevent="preventFromValueInData"><button>{{ counter }}</button></form>`
+            template: `
+                <p>{{ textSame }}</p>
+                <input 
+                    type="text" 
+                    v-model = textSame
+                />
+            `
         }).mount("#app");
         console.log(vm);
     </script>

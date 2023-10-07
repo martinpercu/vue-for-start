@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app">
+        
+    </div>
+    
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return { 
+                    evt: "submit",
+                    counter: 0,                
+                };
+            },
+            methods: {
+                increments()  {
+                    console.log("clicking!!");
+                    this.counter++
+                },
+                submiting(e)  {
+                    e.preventDefault();
+                    this.counter++
+                },
+                withPreventFromVUE() {
+                    console.log("qfdsfqsdf");
+                    // console.log(e);
+                    this.counter++
+                },
+                preventFromValueInData() {
+                    console.log("qfdsfqsdf");
+                    this.counter++
+                }
+            },
+            template: `<button v-on:click="increments">{{ counter }}</button>
+            <button v-on:keyup="increments">{{ counter }}</button>
+            <form  v-on:submit="submiting"><button>{{ counter }}</button></form>            
+            <form  v-on:submit.prevent="withPreventFromVUE"><button>{{ counter }}</button></form>
+            <form  v-on:[evt].prevent="preventFromValueInData"><button>{{ counter }}</button></form>`
+        }).mount("#app");
+        console.log(vm);
+    </script>
+    
+</body>
+</html>
