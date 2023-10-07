@@ -9,3 +9,7 @@
 - v-text="text" ===> will take the var text
 - v-once ===> will show the var text just one time and will not be possible to change the render of this.
 - v-html ===> if var is somethig like "<h2>BLALBLA</h2>" will interpreter well. (of course not allow to user ... is probably someone inject some malicious scripts!!).
+
+## Reactive Atribute 
+- Clean all the index.html. I will left an index-old-01.
+- the template for an img ===> IMPORTANT we can bind also the attribute as the "src".
