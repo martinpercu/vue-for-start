@@ -27,3 +27,11 @@
 - Important "v-on:" == "@"  and  the "v-bind:" == ":"
 - Clean all the index.html. I will left an index-old-04.
 - The last one to connetc everything without using methods is ===> "v-model" 
+
+# Reactivity
+## Computed Properties
+- Clean all the index.html. I will left an index-old-05.
+- We use the "computed:" here we declare funtions with the same name as the variable will represent. In this case is fullName() that is invoce que html with {{ fullName }}.  SAME NAME  """Function <==> Variable"""
+- Another example with "today".
+
+  

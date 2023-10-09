@@ -11,16 +11,26 @@
     <script>
         const vm = Vue.createApp({
             data() {
-                return {    
-                    textSame: "Text Same 3 power"          
+                return {  
+                    firstName: "Marianito",
+                    lastName: "Martinez",
+                    now: new Date(),                    
                 };
             },
+            computed : {
+                fullName() {
+                    return this.firstName + ' ' + this.lastName
+                },
+                today() {
+                    return this.now.toLocaleDateString()
+                }
+            },
             template: `
-                <p>{{ textSame }}</p>
-                <input 
-                    type="text" 
-                    v-model = textSame
-                />
+                <div>{{ firstName }} {{ lastName }}</div>
+                <div>{{ fullName }}</div>
+                <div>{{ now.toLocaleDateString() }}</div>
+                <div>{{ today }}</div>
+
             `
         }).mount("#app");
         console.log(vm);
