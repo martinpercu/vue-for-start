@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app"></div>    
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {    
+                    text: 'Window close',
+                    open: false     
+                };
+            },
+            watch: {
+                text(value, old) {
+                    console.log("watcher activated ", value, old, this.text);
+                },
+                open(value) {
+                    if (value) {
+                        this.text = "The Window is OPEN!!"
+                    } else {
+                        this.text = "The Window is CLOSE!!"                        
+                    }
+                },
+            },
+            computed: {
+                buttonLabel() {
+                    return this.open ? "Close Window" : "Open Window"
+                }
+            },
+            template: `<div> {{ text }} </div>
+            <button @click="open = !open"> {{ open ? "close the window" : "open the window" }}</button>
+            <button @click="open = !open"> {{ buttonLabel }}</button>
+            `
+        }).mount("#app");
+        console.log(vm);
+    </script>    
+</body>
+</html>
