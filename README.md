@@ -34,4 +34,7 @@
 - We use the "computed:" here we declare funtions with the same name as the variable will represent. In this case is fullName() that is invoce que html with {{ fullName }}.  SAME NAME  """Function <==> Variable"""
 - Another example with "today".
 
-  
+## Watchers
+- Clean all the index.html. I will left an index-old-06.
+- We use the "watch:" here que declare function "with the same name as variables" to watch if they change it. 
+- Important... the whatchers should make just 1 thing.
