@@ -53,3 +53,10 @@
 - And replace the  {{ buttonLabel }} in button with 2 divs!!!
 - Now we add an input to pass an username to access.
 - This variable is declared in data as an empty string. 
+
+## Lists
+- I will left an index-old-09.
+- In data create a list of posts.
+- Then for render this list use the v-for.
+- IMPORTANT to control each element and be able to destroy an item or add other use the attribute ":key"
+- :key if mandatory to add something to identify it. In this case in the same v-for the for cycle is bring the "item" and "i". This "i" is in attribute key.  ==> "i" is index!!! With that in the DOM each item has an unique identifier.
