@@ -60,3 +60,15 @@
 - Then for render this list use the v-for.
 - IMPORTANT to control each element and be able to destroy an item or add other use the attribute ":key"
 - :key if mandatory to add something to identify it. In this case in the same v-for the for cycle is bring the "item" and "i". This "i" is in attribute key.  ==> "i" is index!!! With that in the DOM each item has an unique identifier.
+
+# Components personalized
+## Components
+- I will left an index-old-09.
+- First steps to isolate element to convert them in a "component"
+- Separete the "Vue.createApp" from the ".mount"
+- A grosso modo ==> const vm = Vue.createApp change to const app = Vue.createApp
+- A grosso modo ==> .mount("#app"); change to const vm = app.mount("#app");
+- NOW ==> app.component("item", { json with all we want to use })
+- In the JSON we add: a "template:" here we put the component.
+- In the JSON we add: a "props:" here ad an indentifier to connect to it.
+
