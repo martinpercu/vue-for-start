@@ -63,7 +63,7 @@
 
 # Components personalized
 ## Components
-- I will left an index-old-09.
+- I will left an index-old-10.
 - First steps to isolate element to convert them in a "component"
 - Separete the "Vue.createApp" from the ".mount"
 - A grosso modo ==> const vm = Vue.createApp change to const app = Vue.createApp
@@ -71,4 +71,10 @@
 - NOW ==> app.component("item", { json with all we want to use })
 - In the JSON we add: a "template:" here we put the component.
 - In the JSON we add: a "props:" here ad an indentifier to connect to it.
+
+## Slots
+- I will left an index-old-11.
+- In the app.component(v-layout, {template}).... v-layout is the name will be invoked fromo the app.
+- The <slot> is where we add the name will be invoke in the <template> inside the v-layout
+- As example "<slot name="header-top"></slot>" is inside a <header> And this will works fine also. "The slots can use any name"
 

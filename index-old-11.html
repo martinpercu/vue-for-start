@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+     <div id="app"></div>
+    <script>
+        // const vm = Vue.createApp({
+        const app = Vue.createApp({
+            data() {
+                return {    
+                    text: 'Window close',
+                    open: false,
+                    // superstyles: {
+                    //     backgroundColor: "#e5e5e5"
+                    // }  
+                    username: '',
+                    posts: [
+                        {
+                        title: "first title",
+                        description: "Description bla bla"
+                        },
+                        {
+                        title: "Second title",
+                        description: "2nd Descriptila bla"
+                        },
+                        {
+                        title: "3th title",
+                        description: "Description NUMBER 3"
+                        },
+                        {
+                        title: "4 hey title",
+                        description: "La description N°4 n bla bla"
+                        },
+                    ]
+                };
+            },
+            watch: {
+                text(value, old) {
+                    console.log("watcher activated ", value, old, this.text);
+                },
+                open(value) {
+                    if (value) {
+                        this.text = "The Window is OPEN!!";
+                        // this.styles.backgroundColor = "#6dad52"
+                    } else {
+                        this.text = "The Window is CLOSE!!";
+                        // this.styles.backgroundColor = "#b64e55"
+                        this.username = "";                     
+                    }
+                },
+            },
+            computed: {
+                // buttonLabel() {
+                //     return this.open ? "Close Window" : "Open Window"
+                // },
+                ourStyles() {
+                    return this.open ? ['opened'] : ['closed']
+                }
+            },
+            template: `
+            <!-- <div class="container" :style="superstyles"> -->
+            <!--  <div class="container" :class="{ 'opened': open, 'closed': !open }"> -->
+            <div class="container" :class="ourStyles">
+                <h3> {{ text }} </h3>
+                <div v-if="open">
+                    <p>Hello, {{ username }}</p>
+                    <div class="list">
+
+                        <item 
+                            v-for="(item, i) in posts"
+                            :key="i"
+                            :post="item"
+                        />
+                        
+                    </div> 
+                </div>
+                <div v-else>
+                    <div>Username</div>
+                    <input type="text" v-model="username"/>
+                </div>
+                <button @click="open = !open"> 
+                    <div v-if="!open"> Go inside </div>
+                    <div v-else> Go away!! </div>
+                </button>
+            </div>
+            `
+        })
+        // .mount("#app");
+
+        app.component("item", {
+            props: ["post"],
+            template:`            
+            <div class="item">
+                <div class="title">{{ post.title }}</div>
+                <p>{{ post.description }}</p>
+            </div>
+            `
+        })
+
+
+        
+        const vm = app.mount("#app");
+        console.log(vm);
+    </script>  
+    
+    <style>
+        html, body {
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #app, .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+        }
+        button {
+            margin-top: 24px;
+            border: none;
+            background-color: white;
+            padding: 8px 24px;
+            border-radius: 12px;
+        }
+        .closed {
+            background-color: #913c42;
+        }
+        .opened {
+            background-color: #8ddf6a;
+        }
+        .list {
+            display: flex;
+            flex-direction: column;
+        }
+        .item {
+            border: 2px dashed gray;
+            margin: 3px;
+            padding: 4px;
+        }
+        .title {
+            font-size: 1.7rem;
+        }
+    </style>  
+</body>
+</html>
