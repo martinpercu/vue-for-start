@@ -78,3 +78,11 @@
 - The <slot> is where we add the name will be invoke in the <template> inside the v-layout
 - As example "<slot name="header-top"></slot>" is inside a <header> And this will works fine also. "The slots can use any name"
 
+# Communicatino between components
+## From father to child
+- I will left an index-old-12.
+- This is just the example to connect the father to one child.
+- Just use the "v-bind:" In this case I usea "itemo" just to show has no relation with the "v-item" (component name).
+
+
+
