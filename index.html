@@ -12,24 +12,36 @@
         const app = Vue.createApp({
             data() {
                 return {
-                    items: ["uno", "two", "trois", "4"]
+                    items: ["uno", "two", "trois", "4", "five!!"]
+                }
+            },
+            methods: {
+                remove(i) {
+                    this.items = this.items.filter((el, index) => index !== i)                    
                 }
             },
             template: `
                 <ul>
-                    <v-item v-for="itemo in items" v-bind:text="itemo"></v-item>         
+                    <v-item 
+                        v-for="(itemo, i) in items" 
+                        v-bind:text="itemo"
+                        v-on:event_example="remove(i)"
+                    />       
                 </ul>
             `
         });
 
         app.component("v-item", {
             props: {
-                text: {
-                    default: "this could be empty text"
-                }
+                text: String
+            },
+            methods: {
+                eventToFatherGenerator() {
+                    this.$emit("event_example")
+                }                
             },
             template:`
-                <li>{{ text }}</li>            
+                <li v-on:click="eventToFatherGenerator">{{ text }}</li>            
             `
         });
         
