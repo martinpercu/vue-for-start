@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document base</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app"></div>    
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    items: ["uno", "two", "trois", "4", "five!!"]
+                }
+            },
+            methods: {
+                remove(i) {
+                    this.items = this.items.filter((el, index) => index !== i)                    
+                }
+            },
+            template: `
+                <ul>
+                    <v-item 
+                        v-for="(itemo, i) in items" 
+                        v-bind:text="itemo"
+                        v-on:event_example="remove(i)"
+                    />       
+                </ul>
+            `
+        });
+
+        app.component("v-item", {
+            props: {
+                text: String
+            },
+            methods: {
+                eventToFatherGenerator() {
+                    this.$emit("event_example")
+                }                
+            },
+            template:`
+                <li v-on:click="eventToFatherGenerator">{{ text }}</li>            
+            `
+        });
+        
+        const vm = app.mount("#app");
+    </script>    
+</body>
+</html>

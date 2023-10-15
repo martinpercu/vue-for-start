@@ -91,6 +91,10 @@
 - So in father => "v-on:event_example="remove(i)". Where remove(i) is the method to remove this item.
 - In the child => "v-on:click="eventToFatherGenerator" Where eventToFatherGenerator is the method to generate the event "this.$emit("event_example")".
 
-
+## Custom V-MODEL 
+- I will left an index-old-14.
+- This is an example to use like a doble connection.
+- The father component with this <v-inputa v-model:someValue="textInput" /> send and receive. In this case is sending the "textInput"
+- In child component use "v-bind:value="someValue"" to get the "textInput" from the father but also with "v-on:input="inputa"" will send with the method "inputa" the "emit" to UPDATE the "someValue".
 
 

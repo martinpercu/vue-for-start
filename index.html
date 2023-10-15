@@ -12,38 +12,28 @@
         const app = Vue.createApp({
             data() {
                 return {
-                    items: ["uno", "two", "trois", "4", "five!!"]
-                }
-            },
-            methods: {
-                remove(i) {
-                    this.items = this.items.filter((el, index) => index !== i)                    
-                }
+                    textInput: "This is my lovely text"
+                }                
             },
             template: `
-                <ul>
-                    <v-item 
-                        v-for="(itemo, i) in items" 
-                        v-bind:text="itemo"
-                        v-on:event_example="remove(i)"
-                    />       
-                </ul>
+                <div>
+                    <p>{{ textInput }}</p>
+                    <v-inputa v-model:someValue="textInput" />
+                </div>
             `
         });
 
-        app.component("v-item", {
+        app.component("v-inputa", {
             props: {
-                text: String
+                someValue: String
             },
             methods: {
-                eventToFatherGenerator() {
-                    this.$emit("event_example")
-                }                
+                inputa(e) {
+                    this.$emit("update:someValue", e.target.value);
+                }
             },
-            template:`
-                <li v-on:click="eventToFatherGenerator">{{ text }}</li>            
-            `
-        });
+            template: `<input type="text" v-bind:value="someValue" v-on:input="inputa" />`
+        }); 
         
         const vm = app.mount("#app");
     </script>    
