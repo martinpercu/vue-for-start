@@ -98,7 +98,7 @@
 - In child component use "v-bind:value="someValue"" to get the "textInput" from the father but also with "v-on:input="inputa"" will send with the method "inputa" the "emit" to UPDATE the "someValue".
 
 ## Deep component communication 
+- I will left an index-old-15.
 - With "provide" we declare something to use everuwhere.
 - With "inject" we get what there is in "provide".
 - The simple "provide" is like lines 18,19,20 (Already commented). If we want to use in this provide other vars from the same component the "provide" must be "provide()" returning something. This convert the provide in a reactive elememnt.
-
