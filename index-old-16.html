@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document base</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app"></div>    
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    firstText: "my text belle moment"
+                }
+            },
+            // provide: {
+            //     anotherText: "this is another text!!!!"
+            // },
+            provide() {
+                return {
+                    anotherText: this.firstText + ' ' + "this is another text!!!!",
+                    anotherText2: "another TWO"
+                }
+            },
+            template: `
+                <div>{{ firstText }}</div>
+                <another />
+            `
+        });
+
+        app.component("another", {
+            template: `<the3thcomponentText />`            
+        });
+
+        app.component("the3thcomponentText", {
+            inject: ["anotherText", "anotherText2"],
+            template: `<div>{{ anotherText }}</div>
+            <div>{{ anotherText2 }}</div>`
+        })
+        
+        const vm = app.mount("#app");
+    </script>    
+</body>
+</html>

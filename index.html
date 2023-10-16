@@ -12,35 +12,34 @@
         const app = Vue.createApp({
             data() {
                 return {
-                    firstText: "my text belle moment"
-                }
+                    text: "hellloooo",
+                    text_1: "Quelque chose"
+                };
             },
-            // provide: {
-            //     anotherText: "this is another text!!!!"
-            // },
-            provide() {
-                return {
-                    anotherText: this.firstText + ' ' + "this is another text!!!!",
-                    anotherText2: "another TWO"
-                }
-            },
-            template: `
-                <div>{{ firstText }}</div>
-                <another />
+            template: `<div>
+            <v-button :labela="text"></v-button>
+            <v-tester ref="testingElement" :testeo></v-tester>   
+            </div>         
             `
         });
 
-        app.component("another", {
-            template: `<the3thcomponentText />`            
+        app.component("v-button", {
+            props: ["labela"],
+            template: `<button>{{ labela }}</button>`
         });
 
-        app.component("the3thcomponentText", {
-            inject: ["anotherText", "anotherText2"],
-            template: `<div>{{ anotherText }}</div>
-            <div>{{ anotherText2 }}</div>`
+        app.component("v-tester", {
+            props: ["testeo"],
+            template:`<button>Gogogo</button>`
         })
         
         const vm = app.mount("#app");
+        console.log(vm);
+        console.log(vm.$root);
+        console.log(vm.$el);
+        console.log(vm.$refs);
+        console.log(vm.$refs.testingElement);
+        console.log(vm.$props);
     </script>    
 </body>
 </html>
