@@ -13,3 +13,7 @@
 ## Reactive Atribute 
 - Clean all the index.html. I will left an index-old-01.
 - the template for an img ===> IMPORTANT we can bind also the attribute as the "src".
+
+## User Events 
+- Clean all the index.html. I will left an index-old-02.
+- Just to see how works ===> v-on:click + v-on:keyup + v-on:submit + v-on:submit.prevent

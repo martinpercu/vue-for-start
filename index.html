@@ -14,12 +14,35 @@
     <script>
         const vm = Vue.createApp({
             data() {
-                return {
-                    attribute: "src",
-                    img: "https://m.media-amazon.com/images/I/41g6jROgo0L.png"                    
+                return { 
+                    evt: "submit",
+                    counter: 0,                
                 };
             },
-            template: `<img v-bind:[attribute]="img" v-alt="img" />`
+            methods: {
+                increments()  {
+                    console.log("clicking!!");
+                    this.counter++
+                },
+                submiting(e)  {
+                    e.preventDefault();
+                    this.counter++
+                },
+                withPreventFromVUE() {
+                    console.log("qfdsfqsdf");
+                    // console.log(e);
+                    this.counter++
+                },
+                preventFromValueInData() {
+                    console.log("qfdsfqsdf");
+                    this.counter++
+                }
+            },
+            template: `<button v-on:click="increments">{{ counter }}</button>
+            <button v-on:keyup="increments">{{ counter }}</button>
+            <form  v-on:submit="submiting"><button>{{ counter }}</button></form>            
+            <form  v-on:submit.prevent="withPreventFromVUE"><button>{{ counter }}</button></form>
+            <form  v-on:[evt].prevent="preventFromValueInData"><button>{{ counter }}</button></form>`
         }).mount("#app");
         console.log(vm);
     </script>
