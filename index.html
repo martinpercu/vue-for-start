@@ -11,30 +11,34 @@
     <script>
         const vm = Vue.createApp({
             data() {
-                return {  
-                    firstName: "Marianito",
-                    lastName: "Martinez",
-                    now: new Date(),                    
+                return {    
+                    text: 'Window close',
+                    open: false     
                 };
             },
-            computed : {
-                fullName() {
-                    return this.firstName + ' ' + this.lastName
+            watch: {
+                text(value, old) {
+                    console.log("watcher activated ", value, old, this.text);
                 },
-                today() {
-                    return this.now.toLocaleDateString()
+                open(value) {
+                    if (value) {
+                        this.text = "The Window is OPEN!!"
+                    } else {
+                        this.text = "The Window is CLOSE!!"                        
+                    }
+                },
+            },
+            computed: {
+                buttonLabel() {
+                    return this.open ? "Close Window" : "Open Window"
                 }
             },
-            template: `
-                <div>{{ firstName }} {{ lastName }}</div>
-                <div>{{ fullName }}</div>
-                <div>{{ now.toLocaleDateString() }}</div>
-                <div>{{ today }}</div>
-
+            template: `<div> {{ text }} </div>
+            <button @click="open = !open"> {{ open ? "close the window" : "open the window" }}</button>
+            <button @click="open = !open"> {{ buttonLabel }}</button>
             `
         }).mount("#app");
         console.log(vm);
-    </script>
-    
+    </script>    
 </body>
 </html>
