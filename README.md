@@ -38,3 +38,10 @@
 - Clean all the index.html. I will left an index-old-06.
 - We use the "watch:" here que declare function "with the same name as variables" to watch if they change it. 
 - Important... the whatchers should make just 1 thing.
+
+## Reactive Styles
+- I will left an index-old-07.
+- In the index 3 ways to inser the styles in the container. 
+- 1 Using v-bind:style="superstyles"
+- 2 Using v-bind:class="{ 'opened': open, 'closed': !open }
+- 3 Using v-bind:class="ourStyles" ==> ourStyles is a method comming from "computed:"
