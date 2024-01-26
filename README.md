@@ -45,3 +45,11 @@
 - 1 Using v-bind:style="superstyles"
 - 2 Using v-bind:class="{ 'opened': open, 'closed': !open }
 - 3 Using v-bind:class="ourStyles" ==> ourStyles is a method comming from "computed:"
+
+# List and Conditionals
+## Conditionals
+- I will left an index-old-08.
+- Now we delete (I left commented) the computed method buttonLabel().
+- And replace the  {{ buttonLabel }} in button with 2 divs!!!
+- Now we add an input to pass an username to access.
+- This variable is declared in data as an empty string. 

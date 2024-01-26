@@ -17,7 +17,6 @@
                     // superstyles: {
                     //     backgroundColor: "#e5e5e5"
                     // }  
-                    username: ''
                 };
             },
             watch: {
@@ -30,15 +29,14 @@
                         // this.styles.backgroundColor = "#6dad52"
                     } else {
                         this.text = "The Window is CLOSE!!";
-                        // this.styles.backgroundColor = "#b64e55"
-                        this.username = "";                     
+                        // this.styles.backgroundColor = "#b64e55"                        
                     }
                 },
             },
             computed: {
-                // buttonLabel() {
-                //     return this.open ? "Close Window" : "Open Window"
-                // },
+                buttonLabel() {
+                    return this.open ? "Close Window" : "Open Window"
+                },
                 ourStyles() {
                     return this.open ? ['opened'] : ['closed']
                 }
@@ -46,19 +44,9 @@
             template: `
             <!-- <div class="container" :style="superstyles"> -->
             <!--  <div class="container" :class="{ 'opened': open, 'closed': !open }"> -->
-            <div class="container" :class="ourStyles">
+                <div class="container" :class="ourStyles">
                 <h3> {{ text }} </h3>
-                <div v-if="open">
-                    <p>Hello, {{ username }}</p>
-                </div>
-                <div v-else>
-                    <label>Username</label>
-                    <input type="text" v-model="username"/>
-                </div>
-                <button @click="open = !open"> 
-                    <div v-if="!open"> Go inside </div>
-                    <div v-else> Go away!! </div>
-                </button>
+            <button @click="open = !open"> {{ buttonLabel }}</button>
             </div>
             `
         }).mount("#app");
