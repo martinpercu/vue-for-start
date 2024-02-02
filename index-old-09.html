@@ -17,25 +17,7 @@
                     // superstyles: {
                     //     backgroundColor: "#e5e5e5"
                     // }  
-                    username: '',
-                    posts: [
-                        {
-                        title: "first title",
-                        description: "Description bla bla"
-                        },
-                        {
-                        title: "Second title",
-                        description: "2nd Descriptila bla"
-                        },
-                        {
-                        title: "3th title",
-                        description: "Description NUMBER 3"
-                        },
-                        {
-                        title: "4 hey title",
-                        description: "La description N°4 n bla bla"
-                        },
-                    ]
+                    username: ''
                 };
             },
             watch: {
@@ -68,23 +50,9 @@
                 <h3> {{ text }} </h3>
                 <div v-if="open">
                     <p>Hello, {{ username }}</p>
-                    <div class="list">
-                        <div v-for="(item, i) in posts" :key="i" class="item">
-                            <div class="title">{{ item.title }}</div>
-                            <p>{{ item.description }}</p>
-                        </div>
-                    <!--<div v-for="item in posts" class="item">
-                            <div class="title">{{ item.title }}</div>
-                            <p>{{ item.description }}</p>
-                        </div> -->
-                    <!--<div class="item">
-                            <div class="title">A title</div>
-                            <p>Bla bla content for bla bla</p>
-                        </div> -->
-                    </div> 
                 </div>
                 <div v-else>
-                    <div>Username</div>
+                    <label>Username</label>
                     <input type="text" v-model="username"/>
                 </div>
                 <button @click="open = !open"> 
@@ -123,18 +91,6 @@
         }
         .opened {
             background-color: #8ddf6a;
-        }
-        .list {
-            display: flex;
-            flex-direction: column;
-        }
-        .item {
-            border: 2px dashed gray;
-            margin: 3px;
-            padding: 4px;
-        }
-        .title {
-            font-size: 1.7rem;
         }
     </style>  
 </body>
