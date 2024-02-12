@@ -9,8 +9,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
      <div id="app"></div>
     <script>
-        // const vm = Vue.createApp({
-        const app = Vue.createApp({
+        const vm = Vue.createApp({
             data() {
                 return {    
                     text: 'Window close',
@@ -70,13 +69,18 @@
                 <div v-if="open">
                     <p>Hello, {{ username }}</p>
                     <div class="list">
-
-                        <item 
-                            v-for="(item, i) in posts"
-                            :key="i"
-                            :post="item"
-                        />
-                        
+                        <div v-for="(item, i) in posts" :key="i" class="item">
+                            <div class="title">{{ item.title }}</div>
+                            <p>{{ item.description }}</p>
+                        </div>
+                    <!--<div v-for="item in posts" class="item">
+                            <div class="title">{{ item.title }}</div>
+                            <p>{{ item.description }}</p>
+                        </div> -->
+                    <!--<div class="item">
+                            <div class="title">A title</div>
+                            <p>Bla bla content for bla bla</p>
+                        </div> -->
                     </div> 
                 </div>
                 <div v-else>
@@ -89,22 +93,7 @@
                 </button>
             </div>
             `
-        })
-        // .mount("#app");
-
-        app.component("item", {
-            props: ["post"],
-            template:`            
-            <div class="item">
-                <div class="title">{{ post.title }}</div>
-                <p>{{ post.description }}</p>
-            </div>
-            `
-        })
-
-
-        
-        const vm = app.mount("#app");
+        }).mount("#app");
         console.log(vm);
     </script>  
     
