@@ -84,5 +84,13 @@
 - This is just the example to connect the father to one child.
 - Just use the "v-bind:" In this case I usea "itemo" just to show has no relation with the "v-item" (component name).
 
+## From child to father 
+- I will left an index-old-13.
+- This is just the example to connect the child to the father.
+- The way Vue allow us to connect from the child is using "events" so we must prepare the father to listen the event and the child to generate.
+- So in father => "v-on:event_example="remove(i)". Where remove(i) is the method to remove this item.
+- In the child => "v-on:click="eventToFatherGenerator" Where eventToFatherGenerator is the method to generate the event "this.$emit("event_example")".
+
+
 
 
