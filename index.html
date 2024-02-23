@@ -12,28 +12,33 @@
         const app = Vue.createApp({
             data() {
                 return {
-                    textInput: "This is my lovely text"
-                }                
+                    firstText: "my text belle moment"
+                }
+            },
+            // provide: {
+            //     anotherText: "this is another text!!!!"
+            // },
+            provide() {
+                return {
+                    anotherText: this.firstText + ' ' + "this is another text!!!!",
+                    anotherText2: "another TWO"
+                }
             },
             template: `
-                <div>
-                    <p>{{ textInput }}</p>
-                    <v-inputa v-model:someValue="textInput" />
-                </div>
+                <div>{{ firstText }}</div>
+                <another />
             `
         });
 
-        app.component("v-inputa", {
-            props: {
-                someValue: String
-            },
-            methods: {
-                inputa(e) {
-                    this.$emit("update:someValue", e.target.value);
-                }
-            },
-            template: `<input type="text" v-bind:value="someValue" v-on:input="inputa" />`
-        }); 
+        app.component("another", {
+            template: `<the3thcomponentText />`            
+        });
+
+        app.component("the3thcomponentText", {
+            inject: ["anotherText", "anotherText2"],
+            template: `<div>{{ anotherText }}</div>
+            <div>{{ anotherText2 }}</div>`
+        })
         
         const vm = app.mount("#app");
     </script>    
