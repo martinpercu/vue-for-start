@@ -102,3 +102,8 @@
 - With "provide" we declare something to use everuwhere.
 - With "inject" we get what there is in "provide".
 - The simple "provide" is like lines 18,19,20 (Already commented). If we want to use in this provide other vars from the same component the "provide" must be "provide()" returning something. This convert the provide in a reactive elememnt.
+
+## Component instance 
+- I will left an index-old-16.
+- This is just example to see how Vue could be use just in part over a vanilla js. 
+- With the examples console.log with "$" we get the value of the parts in Vue.  
