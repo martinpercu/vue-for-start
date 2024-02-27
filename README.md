@@ -107,3 +107,6 @@
 - I will left an index-old-16.
 - This is just example to see how Vue could be use just in part over a vanilla js. 
 - With the examples console.log with "$" we get the value of the parts in Vue.  
+
+## One .vue file
+- Just this a .vue file
